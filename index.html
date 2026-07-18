@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bautizo de Leo - 19/09/2026</title>
+    <!-- Google Fonts: Outfit for general text, Cinzel for title headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SECTION 1: INTRO VIDEO OVERLAY -->
+    <div id="intro-overlay">
+        <!-- We use a background video here. You can change 'intro-video.mp4' with your video file. -->
+        <video id="intro-video" playsinline muted autoplay>
+            <source src="intro.mp4" type="video/mp4">
+            <!-- Fallback URL to a public Lion King / Sunrise thematic clip or stock video if needed -->
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-beautiful-sun-rising-over-the-horizon-40912-large.mp4" type="video/mp4">
+            Tu navegador no soporta vídeos.
+        </video>
+        <div class="video-overlay-content">
+            <h1 class="fade-in-text">Llegó el gran día...</h1>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button id="skip-btn" class="btn-primary">Ver Invitación</button>
+                <button id="unmute-btn" class="btn-secondary" style="margin: 0;">Activar Sonido 🔊</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER (Revealed after intro) -->
+    <main id="main-content" class="hidden">
+        <header class="hero-banner">
+            <div class="jungle-leaves-top"></div>
+            <h1 class="main-title">Bautizo Leo</h1>
+            <p class="event-date">19 de Septiembre de 2026</p>
+        </header>
+
+        <!-- SECTION 2: DETAILS CARD -->
+        <section class="card-container">
+            <div class="invitation-card">
+                <div class="card-details">
+                    <!-- Church details -->
+                    <div class="detail-column left-column">
+                        <div class="icon-wrapper">
+                            <span class="emoji-icon">⛪</span>
+                        </div>
+                        <h3>La Ceremonia</h3>
+                        <p class="time">11:00 h</p>
+                        <p class="place-name">Iglesia San Isidro</p>
+                        <p class="sub-place">El Ejido</p>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="vertical-divider"></div>
+
+                    <!-- Restaurant details -->
+                    <div class="detail-column right-column">
+                        <div class="icon-wrapper">
+                            <span class="emoji-icon">🍴</span>
+                        </div>
+                        <h3>La Celebración</h3>
+                        <p class="time">14:00 h</p>
+                        <p class="place-name">Restaurante Maracas</p>
+                        <p class="sub-place">Almerimar</p>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: EMBEDDED MAPS -->
+                <div class="maps-grid">
+                    <!-- Church Map -->
+                    <div class="map-wrapper">
+                        <h4>Ubicación Iglesia</h4>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.817684074815!2d-2.8105!3d36.7588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ1JzMxLjciTiAywrA0OCczNy44Ilc!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+                                width="100%" 
+                                height="220" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant Map -->
+                    <div class="map-wrapper">
+                        <h4>Ubicación Restaurante</h4>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.9118556637373!2d-2.793892784715569!3d36.69997427997017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd70747444b025bf%3A0xc3cf90e447b952f2!2sRestaurante%20Maracas!5e0!3m2!1ses!2ses!4v1700000000001!5m2!1ses!2ses" 
+                                width="100%" 
+                                height="220" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: MENU SELECTOR -->
+        <section class="menu-section">
+            <h2 class="section-title">El Menú</h2>
+            <p class="section-subtitle">Pulsa el botón para ver los platos y cuéntanos tu preferencia</p>
+            
+            <button id="view-menu-btn" class="btn-secondary">Ver Menú Completo</button>
+
+            <!-- Menu Interactive Viewer (Initially Hidden/Toggled) -->
+            <div id="menu-viewer" class="hidden-menu">
+                <div class="menu-image-container">
+                    <!-- Standard placeholder menu image. The user will replace menu.jpg with their own menu image -->
+                    <img id="menu-img" src="menu.jpeg" alt="Menú del Bautizo" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800'">
+                </div>
+            </div>
+
+            <!-- Preference Selector -->
+            <div class="preference-selector">
+                <p class="preference-title">¿Cuál es tu elección de plato principal?</p>
+                <div class="options-container">
+                    <button class="menu-option-btn" data-choice="Carne">
+                        <span class="option-icon">🍖</span> Carne
+                    </button>
+                    <button class="menu-option-btn" data-choice="Pescado">
+                        <span class="option-icon">🐟</span> Pescado
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: WHATSAPP RSVP -->
+        <section class="rsvp-section">
+            <div class="whatsapp-card">
+                <h2>¿Nos acompañas?</h2>
+                <p>Por favor, confírmanos tu asistencia.</p>
+                <a id="whatsapp-btn" class="btn-whatsapp" href="#" target="_blank">
+                    <svg viewBox="0 0 24 24" class="whatsapp-icon">
+                        <path fill="currentColor" d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.982L2 22l5.202-1.362a9.923 9.923 0 0 0 4.805 1.232h.005c5.505 0 9.99-4.478 9.99-9.985a9.97 9.97 0 0 0-2.927-7.06A9.919 9.919 0 0 0 12.012 2zm5.72 14.185c-.244.688-1.217 1.249-1.688 1.302-.47.051-.933.243-2.998-.574-2.644-1.045-4.32-3.73-4.453-3.906-.13-.176-1.072-1.428-1.072-2.723a2.766 2.766 0 0 1 .84-2.036c.26-.26.566-.324.757-.324h.542c.174 0 .39.065.597.564.217.521.738 1.802.803 1.933.065.13.109.282.022.456-.087.174-.13.282-.26.434-.13.152-.271.339-.39.456-.13.13-.268.271-.11.542.152.271.673 1.107 1.442 1.791.993.882 1.829 1.154 2.089 1.285.26.13.412.109.564-.065.152-.174.651-.76.824-1.02.174-.26.347-.217.586-.13.239.087 1.519.716 1.779.846.26.13.434.195.499.304.065.109.065.63-.179 1.318z"/>
+                    </svg>
+                    Confirmar Asistencia
+                </a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <p>¡Te esperamos para pasar un gran día!</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

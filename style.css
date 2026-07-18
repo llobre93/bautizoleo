@@ -1,0 +1,538 @@
+/* ==========================================================================
+   DESIGN SYSTEM & VARIABLES (Lion King Theme: Sunset Gold & Jungle Green)
+   ========================================================================== */
+:root {
+    --color-bg-dark: #120b05;
+    --color-card-bg: #22140a;
+    --color-gold-light: #f39c12;
+    --color-gold-bright: #f1c40f;
+    --color-accent-orange: #d35400;
+    --color-jungle-green: #1b3d22;
+    --color-jungle-light: #2e693b;
+    --color-text-light: #f7e8d5;
+    --color-text-muted: #bdc3c7;
+    
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Outfit', sans-serif;
+    
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --shadow-premium: 0 15px 35px rgba(0, 0, 0, 0.6);
+    --border-gold: 1px solid rgba(243, 156, 18, 0.3);
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   SECTION 1: INTRO OVERLAY
+   ========================================================================== */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+#intro-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0.75;
+}
+
+.video-overlay-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 90%;
+}
+
+.fade-in-text {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-gold-bright);
+    margin-bottom: 25px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+    animation: textGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px rgba(241, 196, 15, 0.5), 0 0 20px rgba(241, 196, 15, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(211, 84, 0, 0.8), 0 0 30px rgba(211, 84, 0, 0.6);
+    }
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-accent-orange), var(--color-gold-light));
+    color: #fff;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4);
+    transition: var(--transition-smooth);
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(241, 196, 15, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-gold-bright);
+    border: 2px solid var(--color-gold-light);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-family: var(--font-body);
+    margin: 15px 0;
+}
+
+.btn-secondary:hover {
+    background: var(--color-gold-light);
+    color: var(--color-bg-dark);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================== */
+#main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   HERO / BANNER
+   ========================================================================== */
+.hero-banner {
+    text-align: center;
+    padding: 60px 20px 40px 20px;
+    position: relative;
+    width: 100%;
+}
+
+.jungle-leaves-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(90deg, var(--color-jungle-green), var(--color-gold-light), var(--color-jungle-green));
+    box-shadow: 0 2px 20px var(--color-jungle-green);
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--color-gold-bright);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.event-date {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--color-gold-light);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   SECTION 2: INVITATION CARD
+   ========================================================================== */
+.card-container {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.invitation-card {
+    background-color: var(--color-card-bg);
+    border: var(--border-gold);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: var(--shadow-premium);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Leaf watermark background effect */
+.invitation-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(46, 105, 59, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 40px;
+}
+
+.detail-column {
+    flex: 1;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-jungle-green), var(--color-jungle-light));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+    border: 1px solid var(--color-gold-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.svg-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--color-gold-bright);
+}
+
+.emoji-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.detail-column h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--color-gold-bright);
+    margin-bottom: 10px;
+}
+
+.detail-column .time {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.detail-column .place-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.detail-column .sub-place {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+.vertical-divider {
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--color-gold-light), transparent);
+    margin: 0 10px;
+}
+
+/* ==========================================================================
+   SECTION 3: GOOGLE MAPS
+   ========================================================================== */
+.maps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.map-wrapper {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.map-wrapper h4 {
+    font-size: 1rem;
+    color: var(--color-gold-bright);
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    height: 220px;
+}
+
+/* ==========================================================================
+   SECTION 4: MENU SELECTOR
+   ========================================================================== */
+.menu-section {
+    width: 100%;
+    background-color: var(--color-card-bg);
+    border: var(--border-gold);
+    border-radius: 20px;
+    padding: 45px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-premium);
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-gold-bright);
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 15px;
+}
+
+/* Drawer / Toggle effect for Menu image */
+.hidden-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hidden-menu.show {
+    max-height: 800px;
+}
+
+.menu-image-container {
+    padding: 15px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 500px;
+    border: 1px dashed rgba(243, 156, 18, 0.3);
+}
+
+.menu-image-container img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    display: block;
+}
+
+.preference-selector {
+    margin-top: 30px;
+    border-top: 1px solid rgba(243, 156, 18, 0.15);
+    padding-top: 25px;
+}
+
+.preference-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-option-btn {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-light);
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-option-btn:hover {
+    border-color: var(--color-gold-light);
+    background-color: rgba(243, 156, 18, 0.05);
+    transform: translateY(-2px);
+}
+
+.menu-option-btn.selected {
+    background: linear-gradient(135deg, var(--color-jungle-green), var(--color-jungle-light));
+    border-color: var(--color-gold-bright);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(46, 105, 59, 0.5);
+}
+
+/* ==========================================================================
+   SECTION 5: WHATSAPP RSVP
+   ========================================================================== */
+.rsvp-section {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.whatsapp-card {
+    background: linear-gradient(135deg, #1b3d22, #112615);
+    border: 1px solid rgba(241, 196, 15, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-premium);
+}
+
+.whatsapp-card h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-gold-bright);
+    margin-bottom: 10px;
+}
+
+.whatsapp-card p {
+    color: var(--color-text-muted);
+    margin-bottom: 25px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba5a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-icon {
+    width: 26px;
+    height: 26px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.main-footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-family: var(--font-heading);
+    color: var(--color-gold-light);
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.6rem;
+    }
+    
+    .card-details {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .vertical-divider {
+        width: 100%;
+        height: 2px;
+        margin: 10px 0;
+    }
+    
+    .maps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .options-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .menu-option-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
